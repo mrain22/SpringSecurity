@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Date;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = cn.mrain22.security.SecurityDemoApplication.class)
 public class SecurityDemoApplicationTests {
@@ -29,6 +31,20 @@ public class SecurityDemoApplicationTests {
     public void  QuerySucess() throws Exception {
         String result = mockMvc.perform(MockMvcRequestBuilders.get("/user") //请求路径及请求方法
                 .param("username", "mrain") //请求参数
+                .contentType(MediaType.APPLICATION_JSON_UTF8)) //请求的类型
+                .andExpect(MockMvcResultMatchers.status().isOk()) //期望返回的状态
+                .andReturn().getResponse().getContentAsString(); //接受返回的结果
+        System.out.println(result);//打印返回的结果
+    }
+
+    @Test
+    public void whenCreatSucess() throws Exception {
+        Date date = new Date();
+        System.out.println("date"+date);
+        System.out.println("dateTime"+date.getTime());
+        String content = "{\"name\":null,\"pass\":\"123456\",\"idate\":"+date.getTime()+"}";//post请求添加用户用
+        String result = mockMvc.perform(MockMvcRequestBuilders.post("/user") //请求路径及请求方法
+                .content(content) //请求参数
                 .contentType(MediaType.APPLICATION_JSON_UTF8)) //请求的类型
                 .andExpect(MockMvcResultMatchers.status().isOk()) //期望返回的状态
                 .andReturn().getResponse().getContentAsString(); //接受返回的结果
