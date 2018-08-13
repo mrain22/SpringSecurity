@@ -1,6 +1,7 @@
 package cn.mrain22.security.Entity;
 
-import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotBlank;
+
 import java.util.Date;
 
 public class User {
