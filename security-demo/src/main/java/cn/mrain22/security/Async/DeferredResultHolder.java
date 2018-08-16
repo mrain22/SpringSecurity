@@ -6,7 +6,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+//@Component
 public class DeferredResultHolder { //为线程1和线程2通信
     private Map<String, DeferredResult<String>> map = new HashMap<String, DeferredResult<String>>();
 

@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "cn.mrain22.security.mySecurity.Properties.SecurityProperties",
+      "name": "mrain22.security",
+      "type": "cn.mrain22.security.mySecurity.Properties.SecurityProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "cn.mrain22.security.mySecurity.Properties.SecurityProperties",
+      "name": "mrain22.security.browser",
+      "type": "cn.mrain22.security.mySecurity.Properties.BrowserProperties"
+    }
+  ]
+}

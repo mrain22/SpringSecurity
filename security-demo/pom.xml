@@ -19,11 +19,11 @@
 
     <dependencies>
         <!--依赖core-->
-        <dependency>
-            <groupId>cn.mrain22.security</groupId>
-            <artifactId>security-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>cn.mrain22.security</groupId>-->
+        <!--<artifactId>security-core</artifactId>-->
+        <!--<version>0.0.1-SNAPSHOT</version>-->
+        <!--</dependency>-->
         <!--依赖browser-->
         <dependency>
             <groupId>cn.mrain22.security</groupId>

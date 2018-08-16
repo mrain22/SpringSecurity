@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class QueueListener implements ApplicationListener<ContextRefreshedEvent> {//监听消息队列
     @Autowired
     private MockQueue mockQueue;

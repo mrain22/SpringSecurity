@@ -1,4 +1,4 @@
-package cn.mrain22.security.Config;
+package cn.mrain22.security.mySecurity.Config;
 
 import cn.mrain22.security.Filter.TimeIntercept;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package cn.mrain22.security.Config;
+package cn.mrain22.security.mySecurity.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

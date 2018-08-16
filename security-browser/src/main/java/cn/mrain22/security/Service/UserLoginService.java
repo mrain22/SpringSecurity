@@ -15,7 +15,7 @@ public class UserLoginService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        System.out.println("登录成功！");
+        System.out.println("进入验证程序！");
         return  new User("1",
                 passwordEncoder.encode("1"),
                 AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));

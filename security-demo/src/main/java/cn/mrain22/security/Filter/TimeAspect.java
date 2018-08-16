@@ -2,13 +2,13 @@ package cn.mrain22.security.Filter;
 
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 
 import java.util.Date;
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class TimeAspect {
     @AfterThrowing
     @Around("execution(* cn.mrain22.security.Controller.DemoController.*(..))")
