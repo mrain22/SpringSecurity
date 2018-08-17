@@ -1,5 +1,6 @@
 package cn.mrain22.security.mySecurity.authentication;
 
+import cn.mrain22.security.Support.SimpleResponse;
 import cn.mrain22.security.mySecurity.Properties.LoginType;
 import cn.mrain22.security.mySecurity.Properties.SecurityProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,7 +35,7 @@ public class MrainAuthenticationFailureHandle extends SimpleUrlAuthenticationFai
             //        将信息以json形式返回
             httpServletResponse.setStatus(500);  //服务器内部异常
             httpServletResponse.setContentType("application/json;charset=UTF-8");  //设置返回类型
-            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(e));  //将错误信息写入
+            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(new SimpleResponse(e.getMessage()) ));  //将错误信息写入
         }else {
             super.onAuthenticationFailure(httpServletRequest,httpServletResponse,e);
         }

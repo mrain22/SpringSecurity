@@ -12,6 +12,11 @@
       "sourceType": "cn.mrain22.security.mySecurity.Properties.SecurityProperties",
       "name": "mrain22.security.browser",
       "type": "cn.mrain22.security.mySecurity.Properties.BrowserProperties"
+    },
+    {
+      "sourceType": "cn.mrain22.security.mySecurity.Properties.SecurityProperties",
+      "name": "mrain22.security.validate-code",
+      "type": "cn.mrain22.security.mySecurity.Properties.ValidateCodeProperties"
     }
   ]
 }

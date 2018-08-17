@@ -7,6 +7,8 @@ public class SecurityProperties {  //用来封装所有的配置
 
     //mrain22.security.browser
     private BrowserProperties browser = new BrowserProperties();
+    //mrain22.security.validate-code
+    private ValidateCodeProperties validateCode = new ValidateCodeProperties();
 
 
 
@@ -16,5 +18,13 @@ public class SecurityProperties {  //用来封装所有的配置
 
     public void setBrowser(BrowserProperties browser) {
         this.browser = browser;
+    }
+
+    public ValidateCodeProperties getValidateCode() {
+        return validateCode;
+    }
+
+    public void setValidateCode(ValidateCodeProperties validateCode) {
+        this.validateCode = validateCode;
     }
 }

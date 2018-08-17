@@ -1,6 +1,7 @@
 package cn.mrain22.security.mySecurity.Config;
 
 import cn.mrain22.security.mySecurity.Properties.SecurityProperties;
+import cn.mrain22.security.validate.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -26,9 +28,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthenticationFailureHandler mrainAuthenticationFailureHandle;
 
+//
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
+//        自己写的过滤器
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setAuthenticationFailureHandler(mrainAuthenticationFailureHandle);
+        validateCodeFilter.setSecurityProperties(securityProperties);
+
+        http.addFilterBefore(validateCodeFilter,UsernamePasswordAuthenticationFilter.class)
+                .formLogin()
                 .loginPage("/authentication")
                 .loginProcessingUrl("/login")
 //                使用自己的登录成功和失败处理器
@@ -37,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .authorizeRequests()
-                .antMatchers(securityProperties.getBrowser().getLoginPage()).permitAll()
+                .antMatchers(securityProperties.getBrowser().getLoginPage(),"/validate/defaultKaptcha").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
